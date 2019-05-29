@@ -10,17 +10,15 @@ project-folder
 
 Second, go into zss and run "set-ssh.sh".
 
-Third, go into zss/build and run "ant zis"
+Third, go into hello-world-service and run "build.sh"
 
-Fourth, go into hello-world-service and run "build.sh"
+The DLL should now be built. You should see helloWorld.so.
 
-The DLL should now be built. You should see helloWorld.so inside zss/bin
-
-# Plugin
-Make sure that you have a plugin locator that correctly gives the location of your plugin definition. This is in zlux-app-server/plugins. This should also match the plugin identifier that was used in this example (hello.world).
+# Setting Up
+Move this folder to your Zowe install location and run deploy.sh
 
 # Testing
-Put this DLL into an existing version of Zowe, in the same location as the zssServer binary. If you start the zssServer, then you should see the DLL being loaded in. To test, go to the following URL:
+If you start the zssServer, then you should see the DLL being loaded in. To test, go to the following URL:
 
 ```{HOSTNAME}:{PORT}/ZLUX/plugins/hello.world/services/data```
 
