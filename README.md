@@ -15,7 +15,7 @@ Third, go into hello-world-service and run "build.sh"
 The DLL should now be built. You should see helloWorld.so.
 
 # Setting Up
-Move this folder to your Zowe install location and run deploy.sh
+Move this folder to your Zowe install location and run deploy.sh. Then, go into zlux-build and run ```ant deploy```.
 
 # Testing
 If you start the zssServer, then you should see the DLL being loaded in. To test, go to the following URL:
