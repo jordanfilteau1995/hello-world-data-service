@@ -40,6 +40,7 @@
 
 typedef struct HelloServiceData_t {
   int timesVisited;
+  uint64 loggingId;
 } HelloServiceData;
 
 static int serveHelloWorldDataService(HttpService *service, HttpResponse *response)
@@ -50,6 +51,9 @@ static int serveHelloWorldDataService(HttpService *service, HttpResponse *respon
   
   HelloServiceData *serviceData = service->userPointer;
   serviceData->timesVisited++;
+
+  zowelog(NULL, serviceData->loggingId, ZOWE_LOG_WARNING,
+          "Inside serveHelloWorldDataService\n");
   
   if (!strcmp(request->method, methodGET)) 
   {
@@ -130,6 +134,7 @@ void helloWorldDataServiceInstaller(DataService *dataService, HttpServer *server
   httpService->doImpersonation = TRUE;
 
   HelloServiceData *serviceData = (HelloServiceData*)safeMalloc(sizeof(HelloServiceData), "HelloServiceData");
+  serviceData->loggingId = dataService->loggingIdentifier;
   
   httpService->userPointer = serviceData;
 }
