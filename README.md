@@ -24,3 +24,10 @@ If you start the zssServer, then you should see the DLL being loaded in. To test
 
 This service accepts GET and POST requests.
 
+To turn on logging, add the following snippet into your zluxserver.json file:
+
+"logLevels": {
+   "hello.world": 6
+}
+
+The number after the plugin identifier represents the level of logging. This is read into the server at startup.
