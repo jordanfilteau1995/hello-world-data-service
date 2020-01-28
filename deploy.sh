@@ -1,3 +1,5 @@
-#!/bin/sh
+#!/bin/bash
 
-cp hello.world.json ./zlux-app-server/plugins/hello.world
+PLUGIN_DIR=$(pwd)
+
+../zlux-app-server/bin/install-app.sh $PLUGIN_DIR
